@@ -10,13 +10,39 @@ namespace Maxtruck.Application.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IAuthorizerService _authorizerService;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRepository userRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IAuthorizerService authorizerService, IMapper mapper)
         {
             _userRepository = userRepository;
+            _authorizerService = authorizerService;
             _mapper = mapper;
         }
+
+        public async Task<string> SingInAsync(AuthUser input)
+        {
+            try
+            {
+                var user = await _userRepository.GetUserByEmailAsync(input.Email);
+
+                if(user is null || user.Password != input.Password)
+                {
+                    throw new InvalidCredentialsException();
+                }
+
+                return _authorizerService.GenerateToken(user.Id.ToString(), user.Email);
+            }
+            catch(InvalidCredentialsException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to log in user with email {input.Email}. Error message {ex.Message}");
+            }
+        }
+
         public async Task<List<UserDto>> ListAsync()
         {
             try

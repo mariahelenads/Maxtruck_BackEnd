@@ -13,6 +13,8 @@ namespace Maxtruck.Api.Configurations
             {
                 NotFoundException => StatusCodes.Status404NotFound,
 
+                InvalidCredentialsException => StatusCodes.Status400BadRequest,
+
               //  ValidationException => StatusCodes.Status400BadRequest,
               
                // UnauthorizedAccessException => StatusCodes.Status401Unauthorized,

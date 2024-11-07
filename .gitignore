@@ -3,3 +3,13 @@
 ################################################################################
 
 /.vs/Maxtruck_BackEnd
+/Maxtruck.Api/bin/
+/Maxtruck.Application/bin/
+/Maxtruck.Domain/bin/
+/Maxtruck.Infra/bin/
+/Maxtruck.Api/bin/Debug/net8.0
+/Maxtruck.Application/bin/Debug/net8.0
+/Maxtruck.Domain/bin/Debug/net8.0
+/Maxtruck.Infra/bin/Debug/net8.0
+/bin/
+/obj/

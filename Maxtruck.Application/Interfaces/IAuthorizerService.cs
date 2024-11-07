@@ -1,6 +1,6 @@
 ﻿using Maxtruck.Domain.Models;
 
-namespace Maxtruck.Api.Configurations
+namespace Maxtruck.Application.Services
 {
     public interface IAuthorizerService
     {

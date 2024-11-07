@@ -1,4 +1,5 @@
 ﻿using Maxtruck.Application.Dtos;
+using Maxtruck.Domain.Models;
 
 namespace Maxtruck.Application.Interfaces
 {
@@ -7,6 +8,8 @@ namespace Maxtruck.Application.Interfaces
         Task<List<UserDto>> ListAsync();
 
         Task<UserDto> GetUserByEmailAsync(string email);
+
+        Task<string> SingInAsync(AuthUser input);
 
         Task<bool> CreateUserAsync(UserDto user);
 

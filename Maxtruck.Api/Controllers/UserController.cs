@@ -14,12 +14,10 @@ namespace Maxtruck.Api.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        private readonly IAuthorizerService _authorizerService;
 
-        public UserController(IUserService userService, IAuthorizerService authorizerService)
+        public UserController(IUserService userService)
         {
             _userService = userService;
-            _authorizerService = authorizerService;
         }
 
         [Authorize]
@@ -40,8 +38,8 @@ namespace Maxtruck.Api.Controllers
         public async Task<ActionResult> TestAsync([FromBody]AuthUser user)
         {
             Console.WriteLine($"Email {user.Email} passworkd {user.Password}");
+            var token = await _userService.SingInAsync(user);
 
-            var token = _authorizerService.GenerateToken("1", "name");
             return Ok(new { Token = token });
 
             //return Ok("mock token");
