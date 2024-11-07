@@ -13,3 +13,6 @@
 /Maxtruck.Infra/bin/Debug/net8.0
 /bin/
 /obj/
+/Maxtruck.Application/obj/Debug/net8.0
+/Maxtruck.Domain/obj/Debug/net8.0
+/Maxtruck.Infra/obj/Debug/net8.0
