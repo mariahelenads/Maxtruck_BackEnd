@@ -20,7 +20,7 @@ namespace Maxtruck.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<string> SingInAsync(AuthUser input)
+        public async Task<string> SingnInAsync(AuthUser input)
         {
             try
             {

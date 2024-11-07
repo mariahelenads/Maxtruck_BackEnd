@@ -28,22 +28,21 @@ namespace Maxtruck.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateUserAsync([FromBody]UserDto user)
+        public async Task<ActionResult> CreateUserAsync([FromBody] UserDto user)
         {
             await _userService.CreateUserAsync(user);
             return Ok("user created successfuly");
         }
 
         [HttpPost("auth")]
-        public async Task<ActionResult> TestAsync([FromBody]AuthUser user)
+        public async Task<ActionResult> SingnInAsync([FromBody] AuthUser user)
         {
             Console.WriteLine($"Email {user.Email} passworkd {user.Password}");
-            var token = await _userService.SingInAsync(user);
+            var token = await _userService.SingnInAsync(user);
 
             return Ok(new { Token = token });
-
-            //return Ok("mock token");
         }
+
     }
 
 } 
