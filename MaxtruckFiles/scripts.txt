@@ -8,7 +8,7 @@ CREATE TABLE "TB_USER" (
 );
 
 CREATE TABLE "TB_TRUCKS" (
-    truck_id UUID PRIMARY KEY DEFAULT gen_random_uuid(), -- ID único para cada caminhão
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(), -- ID único para cada caminhão
     model VARCHAR(100) NOT NULL, -- Modelo do caminhão
     brand VARCHAR(100) NOT NULL, -- Marca do caminhão
     length NUMERIC(10, 2) NOT NULL, -- Comprimento do caminhão (em metros)
@@ -30,5 +30,11 @@ CREATE TABLE "TB_BRIDGES" (
     max_height_expressway NUMERIC NULL,
     max_height_local_road NUMERIC NULL,
     max_height_single_road NUMERIC NULL,
-    address JSONB NOT NULL
+    max_height_central NUMERIC NULL,
+    address JSONB NULL
 );
+
+select *
+from public."TB_USER";
+
+
