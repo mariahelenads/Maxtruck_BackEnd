@@ -14,7 +14,11 @@ namespace Maxtruck.Infra
         {        
         }
 
-        public DbSet<User> User { get; set; }
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Bridge> Bridges { get; set; }
+
+        public DbSet<Truck> Trucks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -58,6 +62,12 @@ namespace Maxtruck.Infra
 
             modelBuilder.Entity<Truck>(entity =>
             {
+                entity
+                .HasOne(t => t.User)
+                .WithMany(u => u.Trucks)
+                .HasForeignKey(t => t.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
                 entity.ToTable("TB_TRUCKS");
 
                 entity.HasKey(e => e.Id);
@@ -119,14 +129,9 @@ namespace Maxtruck.Infra
                     .HasColumnName("updated_at")
                     .HasColumnType("timestamp")
                     .IsRequired();
-
-                entity.Property(e => e.User)
-                    .HasColumnName("user_id")
-                    .HasColumnType("uuid")
-                    .IsRequired();
             });
 
-            modelBuilder.Entity<Bridges>(entity =>
+            modelBuilder.Entity<Bridge>(entity =>
             {
                 entity.ToTable("TB_BRIDGES");
 

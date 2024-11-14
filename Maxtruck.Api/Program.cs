@@ -17,8 +17,16 @@ builder.Configuration
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true);
 
 // Database config
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("MaxtruckDB")));
+builder.Services.AddDbContext<AppDbContext>(options => {
+   //  options.UseNpgsql(builder.Configuration.GetConnectionString("MaxtruckDB"));
+
+    var dataSourceBuilder = new Npgsql.NpgsqlDataSourceBuilder(builder.Configuration.GetConnectionString("MaxtruckDB"));
+    dataSourceBuilder.EnableDynamicJson();
+    var dataSource = dataSourceBuilder.Build();
+
+    options.UseNpgsql(dataSource);
+
+});
 
 // JWT Config
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
@@ -97,6 +105,9 @@ builder.Services.AddScoped<IAuthorizerService, AuthorizerService>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddScoped<IBridgeRepository, BridgeRepository>();
+builder.Services.AddScoped<IBridgeService, BridgeService>();
 
 var app = builder.Build();
 

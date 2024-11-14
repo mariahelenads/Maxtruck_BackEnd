@@ -9,24 +9,24 @@ using System.Threading.Tasks;
 
 namespace Maxtruck.Infra.Repositories
 {
-    public class UserRepository : Repository<User>, IUserRepository
+    public class BridgeRepository : Repository<Bridge>, IBridgeRepository
     {
         private readonly AppDbContext _context;
 
-        public UserRepository(AppDbContext context) : base(context)
+        public BridgeRepository(AppDbContext context) : base(context)
         {
             _context = context;
         }
 
-        public async Task<User?> GetUserByEmailAsync(string email)
+        public async Task<Bridge?> GetBridgeByNameAsync(string bridgeName)
         {
             try
             {
-                return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+                return await _context.Bridges.FirstOrDefaultAsync(u => u.Name == bridgeName);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[GetUserByEmailAsync] Error message: {ex.Message}");
+                Console.WriteLine($"[GetBridgeByNameAsync] Error message: {ex.Message}");
                 throw;
             }
         }

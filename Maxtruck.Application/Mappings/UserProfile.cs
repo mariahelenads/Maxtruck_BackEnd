@@ -13,6 +13,8 @@ namespace Maxtruck.Application.Mappings
                 .ForMember(dest => dest.Id, opt => opt.Ignore());
 
             CreateMap<User, UserDto>();
+
+            CreateMap<Bridge, BridgeDto>().ReverseMap();
         }
     }
 }

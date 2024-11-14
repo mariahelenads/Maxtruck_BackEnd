@@ -1,9 +1,13 @@
-﻿namespace Maxtruck.Domain.Models
+﻿using Maxtruck.Domain.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Maxtruck.Application.Dtos
 {
-    /// <summary>
-    /// Entity Bridges (Pontes).
-    /// </summary>
-    public class Bridges : Entity
+    public class BridgeDto
     {
         /// <summary>
         /// Gets or sets Name.
@@ -34,6 +38,5 @@
         /// Gets or sets Address.
         /// </summary>
         public Address? Address { get; set; }
-
     }
 }
