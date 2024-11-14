@@ -1,11 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Maxtruck.Domain.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Maxtruck.Domain.Models
+namespace Maxtruck.Application.Dtos
 {
-    /// <summary>
-    /// Entity Truck (Caminhão).
-    /// </summary>
-    public class Truck : Entity
+    public class TruckDto
     {
         /// <summary>
         /// Gets or sets Model do caminhao.
@@ -53,24 +56,8 @@ namespace Maxtruck.Domain.Models
         public bool Active { get; set; }
 
         /// <summary>
-        /// Gets or sets Created At.
-        /// </summary>
-        public DateTime CreatedAt { get; set; }
-
-        /// <summary>
-        /// Gets or sets Updated At.
-        /// </summary>
-        public DateTime? UpdatedAt { get; set; }
-
-        /// <summary>
         /// Gets or sets User Id.
         /// </summary>
         public Guid UserId { get; set; }
-
-        /// <summary>
-        /// Gets or sets User.
-        /// </summary>
-        public User User { get; set; }
-
     }
 }

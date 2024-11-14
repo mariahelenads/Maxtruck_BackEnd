@@ -62,6 +62,10 @@ namespace Maxtruck.Infra
 
             modelBuilder.Entity<Truck>(entity =>
             {
+                entity.Property(e => e.UserId)
+                    .HasColumnName("user_id")
+                    .IsRequired();
+
                 entity
                 .HasOne(t => t.User)
                 .WithMany(u => u.Trucks)
@@ -127,8 +131,7 @@ namespace Maxtruck.Infra
 
                 entity.Property(e => e.UpdatedAt)
                     .HasColumnName("updated_at")
-                    .HasColumnType("timestamp")
-                    .IsRequired();
+                    .HasColumnType("timestamp");
             });
 
             modelBuilder.Entity<Bridge>(entity =>

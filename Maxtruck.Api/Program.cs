@@ -109,6 +109,9 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IBridgeRepository, BridgeRepository>();
 builder.Services.AddScoped<IBridgeService, BridgeService>();
 
+builder.Services.AddScoped<ITruckRepository, TruckRepository>();
+builder.Services.AddScoped<ITruckService, TruckService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
