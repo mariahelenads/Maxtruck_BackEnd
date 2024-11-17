@@ -4,6 +4,7 @@ namespace Maxtruck.Domain.Models
 {
     /// <summary>
     /// Entity Truck (Caminhão).
+    /// API ROUTE - recebe a altura em centimetros. Pontes cadastradas tem a altura por metro.
     /// </summary>
     public class Truck : Entity
     {

@@ -58,7 +58,7 @@ namespace Maxtruck.Application.Services
             {
                 var trucks = await _truckRepository.GetTrucksByUserIdAsync(userId);
 
-                if(trucks is null || !trucks.Any())
+                if (trucks is null || !trucks.Any())
                 {
                     throw new NotFoundException($"Could not find trucks for user id: {userId}");
                 }
@@ -70,7 +70,7 @@ namespace Maxtruck.Application.Services
                 throw new Exception($"Failed to list trucks by userId. Error message {ex.Message}");
             }
         }
-
+        
         public async Task<TruckDetails> GetTruckDetailsAsync(Guid truckId)
         {
             try
@@ -83,7 +83,7 @@ namespace Maxtruck.Application.Services
                 }
 
                 var truckDetails = _mapper.Map<TruckDetails>(truck);
-                var heightInMeters = truck.Height * 100;
+                var heightInMeters = truck.Height / 100;
                 var bridges = await _bridgeRepository.GetBridgeByMaxHeightAsync(heightInMeters);
                 truckDetails.CriticalBridges = bridges;
 

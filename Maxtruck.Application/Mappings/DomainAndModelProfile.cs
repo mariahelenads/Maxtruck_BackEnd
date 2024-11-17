@@ -23,6 +23,9 @@ namespace Maxtruck.Application.Mappings
                 .ForMember(dest => dest.Height, opt => opt.MapFrom(src => src.Height * 100)) // Centimetros para Metros
                 .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
                 .ForMember(dest => dest.Id, opt => opt.Ignore());
+
+            CreateMap<Truck, TruckDetails>()
+                .ReverseMap();
         }
     }
 }
