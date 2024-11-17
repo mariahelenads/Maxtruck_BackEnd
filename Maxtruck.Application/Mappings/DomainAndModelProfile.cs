@@ -4,9 +4,9 @@ using Maxtruck.Domain.Models;
 
 namespace Maxtruck.Application.Mappings
 {
-    public class UserProfile : Profile
+    public class DomainAndModelProfile : Profile
     {
-        public UserProfile()
+        public DomainAndModelProfile()
         {
             CreateMap<UserDto, User>()
                 .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
@@ -16,8 +16,11 @@ namespace Maxtruck.Application.Mappings
 
             CreateMap<Bridge, BridgeDto>().ReverseMap();
 
-            CreateMap<Truck, TruckDto>();
+            CreateMap<Truck, TruckDto>()
+                .ForMember(dest => dest.Height, opt => opt.MapFrom(src => src.Height / 100)); // Metros para centimetros
+
             CreateMap<TruckDto, Truck>()
+                .ForMember(dest => dest.Height, opt => opt.MapFrom(src => src.Height * 100)) // Centimetros para Metros
                 .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
                 .ForMember(dest => dest.Id, opt => opt.Ignore());
         }

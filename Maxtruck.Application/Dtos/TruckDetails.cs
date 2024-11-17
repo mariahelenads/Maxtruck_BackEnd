@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Maxtruck.Domain.Interfaces
+namespace Maxtruck.Application.Dtos
 {
-    public interface ITruckRepository : IRepository<Truck>
+    public class TruckDetails : Truck
     {
-        Task<List<Truck>?> GetTrucksByUserIdAsync(Guid userId);
+        public List<Bridge>? CriticalBridges { get; set; }
     }
 }

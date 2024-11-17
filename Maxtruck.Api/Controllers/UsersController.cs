@@ -9,13 +9,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Maxtruck.Api.Controllers
 {
-    [Route("api/user")]
+    [Route("api/users")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
 
-        public UserController(IUserService userService)
+        public UsersController(IUserService userService)
         {
             _userService = userService;
         }
@@ -35,12 +35,9 @@ namespace Maxtruck.Api.Controllers
         }
 
         [HttpPost("auth")]
-        public async Task<ActionResult> SingnInAsync([FromBody] AuthUser user)
+        public async Task<ActionResult<AuthTokenResponse>> SingnInAsync([FromBody] AuthUser user)
         {
-            Console.WriteLine($"Email {user.Email} password {user.Password}");
-            var token = await _userService.SingnInAsync(user);
-
-            return Ok(new { Token = token });
+            return await _userService.SingnInAsync(user);
         }
 
     }

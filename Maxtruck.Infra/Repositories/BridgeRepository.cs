@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,6 +28,25 @@ namespace Maxtruck.Infra.Repositories
             catch (Exception ex)
             {
                 Console.WriteLine($"[GetBridgeByNameAsync] Error message: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task<List<Bridge>?> GetBridgeByMaxHeightAsync(decimal maxHeight)
+        {
+            try
+            {
+                Expression<Func<Bridge, bool>> filter = (bridge) =>              
+                    (bridge.MaxHeightCentral != null && bridge.MaxHeightCentral < maxHeight) ||
+                    (bridge.MaxHeightExpressway != null && bridge.MaxHeightExpressway < maxHeight) ||
+                    (bridge.MaxHeightLocalRoad != null && bridge.MaxHeightLocalRoad < maxHeight) ||
+                    (bridge.MaxHeightSingleRoad != null && bridge.MaxHeightSingleRoad < maxHeight);
+
+                return await _context.Bridges.Where(filter).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[GetBridgeByMaxHeight] Error message: {ex.Message}");
                 throw;
             }
         }

@@ -28,7 +28,7 @@ namespace Maxtruck.Domain.Models
         public decimal Width { get; set; }
 
         /// <summary>
-        /// Gets or sets Height.
+        /// Gets or sets Height - altura do caminhão em CENTIMETROS.
         /// </summary>
         public decimal Height { get; set; }
 

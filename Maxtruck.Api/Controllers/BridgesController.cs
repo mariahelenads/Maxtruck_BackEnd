@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Maxtruck.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/bridges")]
     [ApiController]
-    public class BridgeController : ControllerBase
+    public class BridgesController : ControllerBase
     {
         private readonly IBridgeService _bridgeService;
 
-        public BridgeController(IBridgeService bridgeService)
+        public BridgesController(IBridgeService bridgeService)
         {
             _bridgeService = bridgeService;
         }
@@ -29,5 +29,6 @@ namespace Maxtruck.Api.Controllers
             await _bridgeService.AddBridgeAsync(input);
             return Ok("bridge created successfuly");
         }
+
     }
 }

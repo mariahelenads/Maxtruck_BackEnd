@@ -31,7 +31,7 @@ namespace Maxtruck.Application.Dtos
         public decimal Width { get; set; }
 
         /// <summary>
-        /// Gets or sets Height.
+        /// Gets or sets Height  - altura do caminhão em METROS.
         /// </summary>
         public decimal Height { get; set; }
 

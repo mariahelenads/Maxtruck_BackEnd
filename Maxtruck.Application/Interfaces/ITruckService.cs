@@ -1,4 +1,5 @@
 ﻿using Maxtruck.Application.Dtos;
+using Maxtruck.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,9 @@ namespace Maxtruck.Application.Interfaces
         Task AddTruckAsync(TruckDto truck);
 
         Task<List<TruckDto>> GetTrucksAsync();
+
+        Task<List<Truck>> GetTrucksByUserIdAsync(Guid userId);
+
+        Task<TruckDetails> GetTruckDetailsAsync(Guid truckId);
     }
 }

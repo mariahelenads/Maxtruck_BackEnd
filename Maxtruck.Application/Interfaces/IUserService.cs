@@ -9,7 +9,7 @@ namespace Maxtruck.Application.Interfaces
 
         Task<UserDto> GetUserByEmailAsync(string email);
 
-        Task<string> SingnInAsync(AuthUser input);
+        Task<AuthTokenResponse> SingnInAsync(AuthUser input);
 
         Task<bool> CreateUserAsync(UserDto user);
 

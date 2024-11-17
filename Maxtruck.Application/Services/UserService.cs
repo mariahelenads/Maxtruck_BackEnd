@@ -20,7 +20,7 @@ namespace Maxtruck.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<string> SingnInAsync(AuthUser input)
+        public async Task<AuthTokenResponse> SingnInAsync(AuthUser input)
         {
             try
             {
@@ -31,7 +31,9 @@ namespace Maxtruck.Application.Services
                     throw new InvalidCredentialsException();
                 }
 
-                return _authorizerService.GenerateToken(user.Id.ToString(), user.Email);
+                var token = _authorizerService.GenerateToken(user.Id.ToString(), user.Email);
+
+                return new AuthTokenResponse(user.Id, token);
             }
             catch(InvalidCredentialsException)
             {
