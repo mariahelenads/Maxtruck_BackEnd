@@ -110,7 +110,7 @@ O **MAXTRUCK Backend** utiliza o banco de dados **PostgreSQL 17.0**
 3. **📜 Execute os Scripts do Banco de Dados:**
 
 #### 🗂️ Criação das Tabelas
-
+```bash
 CREATE TABLE "TB_USER" (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     name VARCHAR NOT NULL,
@@ -147,8 +147,10 @@ CREATE TABLE "TB_BRIDGES" (
     max_height_single_road NUMERIC NULL,
     max_height_central NUMERIC NULL
 );
+```
 
 #### 🌉 Inserção de Dados das Pontes
+```bash
 INSERT INTO "TB_BRIDGES" (name, max_height_expressway, max_height_local_road, max_height_single_road, max_height_central)
 VALUES ('Ponte Engº Roberto Zuccolo', 5.3, 5.2, NULL, NULL);
 
@@ -202,3 +204,4 @@ VALUES ('Passarela Vila Olímpia', 6.29, 5.7, NULL, NULL);
 
 INSERT INTO "TB_BRIDGES" (name, max_height_expressway, max_height_local_road, max_height_single_road, max_height_central)
 VALUES ('Ponte Engº Roberto Zuccolo', 4.65, 5.05, NULL, NULL);
+```
