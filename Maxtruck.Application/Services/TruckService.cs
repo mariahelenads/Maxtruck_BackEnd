@@ -39,12 +39,12 @@ namespace Maxtruck.Application.Services
             }
         }
 
-        public async Task<List<TruckDto>> GetTrucksAsync()
+        public async Task<List<Truck>> GetTrucksAsync()
         {
             try
             {
                 var trucks = await _truckRepository.GetAllAsync();
-                return _mapper.Map<List<TruckDto>>(trucks);
+                return trucks;
             }
             catch (Exception ex)
             {

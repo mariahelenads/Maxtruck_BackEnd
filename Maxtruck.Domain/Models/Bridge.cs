@@ -30,10 +30,5 @@
         /// </summary>
         public decimal? MaxHeightSingleRoad { get; set; }
 
-        /// <summary>
-        /// Gets or sets Address.
-        /// </summary>
-        public Address? Address { get; set; }
-
     }
 }

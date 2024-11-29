@@ -18,7 +18,7 @@ namespace Maxtruck.Api.Controllers
         }
 
         [HttpGet]   
-        public async Task<ActionResult<List<TruckDto>>> GetTrucksAsync()
+        public async Task<ActionResult<List<Truck>>> GetTrucksAsync()
         {
             return await _truckService.GetTrucksAsync();
         }
@@ -39,7 +39,7 @@ namespace Maxtruck.Api.Controllers
         public async Task<ActionResult> CreateTruckAsync([FromBody]TruckDto truck)
         {
             await _truckService.AddTruckAsync(truck);
-            return Ok("truck created successfuly");
+            return Ok(new { Message = "truck created successfuly" });
         }
     }
 }

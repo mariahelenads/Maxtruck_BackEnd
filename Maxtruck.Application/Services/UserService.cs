@@ -33,7 +33,7 @@ namespace Maxtruck.Application.Services
 
                 var token = _authorizerService.GenerateToken(user.Id.ToString(), user.Email);
 
-                return new AuthTokenResponse(user.Id, token);
+                return new AuthTokenResponse(user.Id, token, user.Name);
             }
             catch(InvalidCredentialsException)
             {

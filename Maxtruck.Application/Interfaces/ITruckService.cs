@@ -12,7 +12,7 @@ namespace Maxtruck.Application.Interfaces
     {
         Task AddTruckAsync(TruckDto truck);
 
-        Task<List<TruckDto>> GetTrucksAsync();
+        Task<List<Truck>> GetTrucksAsync();
 
         Task<List<Truck>> GetTrucksByUserIdAsync(Guid userId);
 

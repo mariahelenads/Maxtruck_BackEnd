@@ -31,7 +31,7 @@ namespace Maxtruck.Api.Controllers
         public async Task<ActionResult> CreateUserAsync([FromBody] UserDto user)
         {
             await _userService.CreateUserAsync(user);
-            return Ok("user created successfuly");
+            return Ok(new { Message = "user created successfuly" });
         }
 
         [HttpPost("auth")]

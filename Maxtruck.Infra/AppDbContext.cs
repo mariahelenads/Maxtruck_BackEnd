@@ -95,8 +95,8 @@ namespace Maxtruck.Infra
                     .HasColumnType("numeric")
                     .IsRequired();
 
-                entity.Property(e => e.Width)
-                    .HasColumnName("width")
+                entity.Property(e => e.Weight)
+                    .HasColumnName("weight")
                     .HasColumnType("numeric")
                     .IsRequired();
 
@@ -115,9 +115,9 @@ namespace Maxtruck.Infra
                     .HasColumnType("numeric")
                     .IsRequired();
 
-                entity.Property(e => e.AdditionalInfo)
-                    .HasColumnName("additional_info")
-                    .HasColumnType("jsonb");
+                entity.Property(e => e.Description)
+                    .HasColumnName("description")
+                    .HasColumnType("text");
 
                 entity.Property(e => e.Active)
                     .HasColumnName("active")
@@ -164,10 +164,6 @@ namespace Maxtruck.Infra
                 entity.Property(e => e.MaxHeightSingleRoad)
                     .HasColumnName("max_height_single_road")
                     .HasColumnType("numeric");
-
-                entity.Property(e => e.Address)
-                    .HasColumnName("address")
-                    .HasColumnType("jsonb");
             });
         }
 
