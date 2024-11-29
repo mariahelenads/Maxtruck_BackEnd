@@ -84,13 +84,13 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do **MAXTRUCK Backe
    https://localhost:7153/swagger/index.html.
 
    ```
-(host configurado na propriedade `H"https:applicationUrl"` do arquivo `Properties/launchSettings.json`):
+(host configurado em `"https:applicationUrl"` do arquivo `Properties/launchSettings.json`):
 
 ## 🗄️ Banco de Dados
 
 O **MAXTRUCK Backend** utiliza o banco de dados **PostgreSQL 17.0** 
 
-### 🎛️ Como Configurar o PostgreSQL
+### 🐘 Como Configurar o PostgreSQL
 
 1. **Instale o PostgreSQL:**
    - Baixe o instalador adequado para o seu sistema operacional no site oficial: [https://www.postgresql.org/download/](https://www.postgresql.org/download/).
