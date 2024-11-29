@@ -24,7 +24,7 @@ namespace Maxtruck.Domain.Models
         public decimal Lenght { get; set; }
 
         /// <summary>
-        /// Gets or sets Width.
+        /// Gets or sets Weight - Peso do caminhão em kg.
         /// </summary>
         public decimal Weight { get; set; }
 
